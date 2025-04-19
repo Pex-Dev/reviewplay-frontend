@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .grid-auto-fill {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+
+  .text-outline {
+    color: transparent;
+    background: #ffffff;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    text-shadow: 0px 3px 3px rgba(255, 255, 255, 0.5);
+  }
+  .text-outline-white {
+    text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.5);
+  }
+}
