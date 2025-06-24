@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 import axiosClient from "../utilities/AxiosClient";
 
-export default function UseFavorites() {
+export default function useFavorites() {
   const [favorites, setFavorites] = useState([]);
   const [user, setUser] = useState(null);
   const [nextPage, setNextPage] = useState(null);

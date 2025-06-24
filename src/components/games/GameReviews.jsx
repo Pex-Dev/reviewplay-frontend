@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { useGame } from "../../context/GameContext";
-import UseReviews from "../../hooks/UseReviews";
+import useReviews from "../../hooks/useReviews";
 import ReviewForm from "../forms/ReviewForm";
 import ReviewCard from "../reviews/ReviewCard";
 
@@ -18,7 +18,7 @@ export default function GameReviews() {
   const { isAuth, user } = useAuth();
 
   //Manejar review
-  const { setErrors, handleDeleteReview } = UseReviews();
+  const { setErrors, handleDeleteReview } = useReviews();
 
   const handleTogleReviewForm = () => {
     setExpandedForm((prevVal) => !prevVal);

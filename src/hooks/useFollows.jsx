@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axiosClient from "../utilities/AxiosClient";
 import { useNavigate } from "react-router-dom";
 
-export default function UseFollows(type = "followers") {
+export default function useFollows(type = "followers") {
   const [loading, setLoading] = useState(true);
   const [sendingRequest, setSendingRequest] = useState(false);
   const [user, setUser] = useState([]);

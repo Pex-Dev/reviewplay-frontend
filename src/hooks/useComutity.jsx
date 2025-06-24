@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import axiosClient from "../utilities/AxiosClient";
 
-export default function UseComunity() {
+export default function useComunity() {
   const [loading, setLoading] = useState(true);
   const [sendingRequest, setSendingRequest] = useState(false);
   const [topUsers, setTopUsers] = useState([]);

@@ -3,7 +3,7 @@ import { useNavigate, useLocation, useParams } from "react-router-dom";
 import axiosClient from "../utilities/AxiosClient";
 import { useAlert } from "../context/AlertContext";
 
-export default function UseResetPassword() {
+export default function useResetPassword() {
   const [errors, setErrors] = useState({});
   const [sendingRequest, setSendingRequest] = useState(false);
   const location = useLocation();

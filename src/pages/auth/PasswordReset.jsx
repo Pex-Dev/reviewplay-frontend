@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import InputPassword from "../../components/UI/InputPassword";
-import UseResetPassword from "../../hooks/UseResetPassword";
+import useResetPassword from "../../hooks/useResetPassword";
 import Label from "../../components/UI/Label";
 
 export default function PasswordReset() {
-  const { handleResetPassword, errors } = UseResetPassword();
+  const { handleResetPassword, errors } = useResetPassword();
 
   const [userPassword, setUserPassword] = useState("");
 

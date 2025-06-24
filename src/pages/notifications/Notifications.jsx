@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
-import UseNotifications from "../../hooks/UseNotifications";
+import useNotifications from "../../hooks/useNotifications";
 import NotificationCard from "../../components/notifications/NotificationCard";
 import PaginationButton from "../../components/UI/PaginationButton";
 
@@ -16,7 +16,7 @@ export default function notifications() {
     prevPage,
     handlePageChange,
     handleOrderChange,
-  } = UseNotifications();
+  } = useNotifications();
 
   const navigate = useNavigate();
 

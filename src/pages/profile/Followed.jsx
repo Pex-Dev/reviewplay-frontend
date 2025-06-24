@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import UseFollows from "../../hooks/UseFollows";
+import useFollows from "../../hooks/useFollows";
 import DefaultIcon from "../../components/UI/DefaultIcon";
 
 export default function Followed({ type }) {
   const { loading, user, followers, followedGames, followedUsers } =
-    UseFollows(type);
+    useFollows(type);
 
   return (
     <div className="max-w-[1000px] mx-auto">

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import useRegister from "../../hooks/UseRegister";
+import useRegister from "../../hooks/useRegister";
 import Input from "../../components/UI/Input";
 import InputPassword from "../../components/UI/InputPassword";
 import Label from "../../components/UI/Label";

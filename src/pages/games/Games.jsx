@@ -1,7 +1,7 @@
 import GameCard from "../../components/games/GameCard";
 import CardSkeleton from "../../components/UI/CardSkeleton";
 import PaginationButton from "../../components/UI/PaginationButton";
-import useGames from "../../hooks/UseGames";
+import useGames from "../../hooks/useGames";
 import SearchBar from "../../components/Filters/SearchBar";
 import FilterBar from "../../components/filters/FilterBar";
 

@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import UseProfile from "./UseProfile";
+import useProfile from "./useProfile";
 import { useAuth } from "../context/AuthContext";
 import axiosClient from "../utilities/AxiosClient";
 import { useAlert } from "../context/AlertContext";
 
-export default function UseUpdatePassword() {
+export default function useUpdatePassword() {
   const [sendingRequest, setSendingRequest] = useState(false);
   const [errors, setErrors] = useState([]);
 
-  const { loading, userProfile } = UseProfile();
+  const { loading, userProfile } = useProfile();
   const { isAuth, user, loadingAuth } = useAuth();
 
   const navigate = useNavigate();

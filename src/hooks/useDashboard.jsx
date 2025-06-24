@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import axiosClient from "../utilities/AxiosClient";
 
-export default function UseDashboard() {
+export default function useDashboard() {
   const [highestScoreGames, setHighestScoreGames] = useState([]);
   const [latestReviews, setLatestReviews] = useState([]);
   const [topUsers, setTopUsers] = useState([]);

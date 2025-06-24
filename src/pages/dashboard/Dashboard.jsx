@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Carousel from "../../components/UI/Carousel";
 import ReviewCardWithGame from "../../components/Reviews/ReviewCardWithGame";
-import UseDashboard from "../../hooks/UseDashboard";
+import useDashboard from "../../hooks/useDashboard";
 import UserCardHorizontal from "../../components/users/UserCardHorizontal";
 import { getScoreColor } from "../../utilities/Utilities";
 import { useState } from "react";
@@ -11,7 +11,7 @@ export default function Dashboard() {
   const [expandedReviews, setExpandedReviews] = useState(false);
 
   const { highestScoreGames, latestReviews, topUsers, loading } =
-    UseDashboard();
+    useDashboard();
   const formatScore = (score) => {
     if (score % 1 === 0) {
       return score.toString(); //Devuelve como string sin decimales

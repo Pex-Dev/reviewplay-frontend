@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import axiosClient from "../utilities/AxiosClient";
 
-export default function UseReviewsList(type, id = null) {
+export default function useReviewsList(type, id = null) {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const [game, setGame] = useState(null);

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import UseProfile from "../../hooks/UseProfile";
+import useProfile from "../../hooks/useProfile";
 import { useAuth } from "../../context/AuthContext";
 import { formatDate } from "../../utilities/Utilities";
 import DefaultIcon from "../../components/UI/DefaultIcon";
@@ -8,7 +8,7 @@ import { useEffect } from "react";
 
 export default function Profile() {
   const { userProfile, loading, followUser, unfollowUser, followed } =
-    UseProfile();
+    useProfile();
   const { isAuth, user, logout } = useAuth();
 
   useEffect(() => {

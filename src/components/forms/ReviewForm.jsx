@@ -3,7 +3,7 @@ import Label from "../UI/Label";
 import ConfirmationButton from "../UI/Button";
 import TextArea from "../UI/TextArea";
 import { useGame } from "../../context/GameContext";
-import UseReviews from "../../hooks/UseReviews";
+import useReviews from "../../hooks/useReviews";
 
 export default function ReviewForm({ action, gameId, reviewId, onClose }) {
   const [score, setScore] = useState(5);
@@ -16,7 +16,7 @@ export default function ReviewForm({ action, gameId, reviewId, onClose }) {
     handleAddReview,
     handleUpdateReview,
     sendingRequest,
-  } = UseReviews();
+  } = useReviews();
 
   const handleScoreChange = (event) => {
     setScore(parseInt(event.target.value));

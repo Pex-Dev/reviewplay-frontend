@@ -1,12 +1,12 @@
 import { useEffect } from "react";
-import UseFavorites from "../../hooks/UseFavorites";
+import useFavorites from "../../hooks/useFavorites";
 import GameCard from "../../components/Games/GameCard";
 import PaginationButton from "../../components/UI/PaginationButton";
 import CardSkeleton from "../../components/UI/CardSkeleton";
 
 export default function Favorites() {
   const { favorites, user, loading, handlePageChange, nextPage, prevPage } =
-    UseFavorites();
+    useFavorites();
 
   useEffect(() => {
     if (loading) return;

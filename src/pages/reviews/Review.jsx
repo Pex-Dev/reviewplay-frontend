@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import DefaultIcon from "../../components/UI/DefaultIcon";
-import UseReviews from "../../hooks/UseReviews";
+import useReviews from "../../hooks/useReviews";
 import Label from "../../components/UI/Label";
 import TextArea from "../../components/UI/TextArea";
 import ConfirmationButton from "../../components/UI/Button";
@@ -21,7 +21,7 @@ export default function Review() {
 
   const navigate = useNavigate();
   const { getReview, errors, handleUpdateReview, handleDeleteReview } =
-    UseReviews();
+    useReviews();
 
   const { isAuth, user } = useAuth();
 

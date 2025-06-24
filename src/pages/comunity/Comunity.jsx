@@ -1,4 +1,4 @@
-import UseComunity from "../../hooks/UseComunity";
+import useComunity from "../../hooks/useComutity";
 import SearchBar from "../../components/filters/SearchBar";
 import UserCardVertical from "../../components/users/UserCardVertical";
 import UserCardHorizontal from "../../components/users/UserCardHorizontal";
@@ -18,7 +18,7 @@ export default function Comunity() {
     prevPage,
     handlePageChange,
     handleSearch,
-  } = UseComunity();
+  } = useComunity();
 
   return (
     <div>

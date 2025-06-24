@@ -8,13 +8,13 @@ import Button from "../../components/UI/Button";
 import DefaultIcon from "../../components/UI/DefaultIcon";
 import { useAlert } from "../../context/AlertContext";
 
-import UseEditProfile from "../../hooks/UseEditProfile";
+import useEditProfile from "../../hooks/useEditProfile";
 
 const EditProfileForm = () => {
   const [image, setImage] = useState(null);
   const [croppedImage, setCroppedImage] = useState(null);
   const [description, setDescription] = useState("");
-  const { loading, userProfile, errors, handleSave } = UseEditProfile();
+  const { loading, userProfile, errors, handleSave } = useEditProfile();
 
   const { showAlert } = useAlert();
 

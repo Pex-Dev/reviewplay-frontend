@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import UseProfile from "./UseProfile";
+import useProfile from "./useProfile";
 import axiosClient from "../utilities/AxiosClient";
 import { useAlert } from "../context/AlertContext";
 
-export default function UseEditProfile() {
+export default function useEditProfile() {
   const [errors, setErrors] = useState([]);
 
-  const { loading, userProfile } = UseProfile();
+  const { loading, userProfile } = useProfile();
   const { isAuth, user, loadingAuth } = useAuth();
 
   const { showAlert } = useAlert();

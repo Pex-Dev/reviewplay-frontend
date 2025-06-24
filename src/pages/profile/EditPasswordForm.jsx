@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import UseUpdatePassword from "../../hooks/UseUpdatePassword";
+import useUpdatePassword from "../../hooks/useUpdatePassword";
 import Label from "../../components/UI/Label";
 import InputPassword from "../../components/UI/InputPassword";
 import Button from "../../components/UI/Button";
@@ -9,7 +9,7 @@ const EditPassword = () => {
   const [newPassword, setNewPassword] = useState("");
   const [newPasswordConfirmation, setNewPasswordConfirmation] = useState("");
 
-  const { errors, loading, handleUpdatePassword } = UseUpdatePassword();
+  const { errors, loading, handleUpdatePassword } = useUpdatePassword();
 
   const handlePasswordChange = (type, e) => {
     if (type === "current_password") {

@@ -3,7 +3,7 @@ import Swal from "sweetalert2";
 import { useAlert } from "../context/AlertContext";
 import axiosClient from "../utilities/AxiosClient";
 
-export default function UseReviews() {
+export default function useReviews() {
   const [errors, setErrors] = useState({});
   const [sendingRequest, setSendingRequest] = useState(false);
 

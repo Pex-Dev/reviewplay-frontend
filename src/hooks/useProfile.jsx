@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useAlert } from "../context/AlertContext";
 import axiosClient from "../utilities/AxiosClient";
 
-export default function UseProfile() {
+export default function useProfile() {
   const navigate = useNavigate();
   const [userProfile, setUserProfile] = useState(null);
   const [loading, setLoading] = useState(true);

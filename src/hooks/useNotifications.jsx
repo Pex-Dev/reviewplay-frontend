@@ -3,7 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import axiosClient from "../utilities/AxiosClient";
 
-export default function UseNotifications() {
+export default function useNotifications() {
   const [loading, setLoading] = useState(true);
   const [sendingRequest, setSendingRequest] = useState(false);
   const [notifications, setNotifications] = useState([]);

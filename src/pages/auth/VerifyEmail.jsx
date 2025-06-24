@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import useRegister from "../../hooks/UseRegister";
+import useRegister from "../../hooks/useRegister";
 
 export default function VerifyEmail() {
   const { sendVerificationEmail } = useRegister();

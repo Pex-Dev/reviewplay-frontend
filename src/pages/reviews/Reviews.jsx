@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import UseReviewsList from "../../hooks/UseReviewsList";
+import useReviewsList from "../../hooks/useReviewsList";
 import PaginationButton from "../../components/UI/PaginationButton";
 import ReviewCardWithGame from "../../components/Reviews/ReviewCardWithGame";
 import { useEffect } from "react";
@@ -16,7 +16,7 @@ export default function Reviews({ type = "all" }) {
     order,
     game,
     user,
-  } = UseReviewsList(type, type != "all" ? id : null);
+  } = useReviewsList(type, type != "all" ? id : null);
 
   useEffect(() => {
     if (loading) return;
