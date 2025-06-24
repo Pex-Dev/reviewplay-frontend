@@ -33,3 +33,40 @@
 - [Sitio en vivo](https://reviewplay.brayandev.com/)
 - [Repositorio Backend](https://github.com/Pex-Dev/reviewplay)
 - [Repositorio Frontend](https://github.com/Pex-Dev/reviewplay-frontend)
+
+## 🚀 Cómo ejecutar este proyecto localmente
+
+Este proyecto tiene un frontend en React y un backend en Laravel, conectados mediante API con autenticación usando Laravel Sanctum.
+
+📦 Requisitos
+
+- Node.js
+
+- npm (Viene con Node)
+
+## 🔧Instalación
+
+**Clonar el repositorio:**
+
+```bash
+git clone https://github.com/Pex-Dev/reviewplay.git
+cd reviewplay
+```
+
+**Copiar archivo env**
+
+```bash
+cp .env.example .env.local
+```
+
+**Instalar dependencias**
+
+```bash
+npm install
+```
+
+**Iniciar servidor de desarrollo**
+
+```bash
+npm run dev
+```
