@@ -41,11 +41,19 @@ export default function Login() {
       className="bg-linear-65 from-gray-800 to-gray-700 border-b-2 border-r-2 border-gray-900 border-t-2 border-t-gray-600 rounded-lg p-2 md:p-6 w-full md:w-[500px] mx-auto mt-20"
       onSubmit={(e) => {
         e.preventDefault();
-        login({
-          email: userEmail,
-          password: userPassword,
-          remember: rememberUser,
-        });
+
+        let credentials = rememberUser
+          ? {
+              email: userEmail,
+              password: userPassword,
+              remember: rememberUser,
+            }
+          : {
+              email: userEmail,
+              password: userPassword,
+            };
+
+        login(credentials);
       }}
     >
       <h1 className="text-3xl text-white text-center font-medium">
