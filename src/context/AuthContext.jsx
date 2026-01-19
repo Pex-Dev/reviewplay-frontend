@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import axiosClient from "../utilities/AxiosClient";
+import { postWithCsrf } from "../utilities/AxiosClient";
+import Cookies from "js-cookie";
 
 //Crear context
 const AuthContext = createContext();
@@ -46,12 +48,22 @@ export const AuthProvider = ({ children }) => {
 
   const getSrfcCookie = async () => {
     try {
-      const response = await axiosClient("/sanctum/csrf-cookie", {
+      // Llamada a la ruta de Sanctum para generar cookie CSRF
+      await axiosClient.get("/sanctum/csrf-cookie", {
         withCredentials: true,
       });
-      return response.data;
+
+      // Leer la cookie XSRF-TOKEN recién generada
+      const csrfToken = Cookies.get("XSRF-TOKEN");
+
+      if (!csrfToken) {
+        throw new Error("No se pudo obtener el token CSRF");
+      }
+
+      return csrfToken;
     } catch (error) {
-      console.log(error);
+      console.error("Error obteniendo CSRF cookie:", error);
+      throw error;
     }
   };
 
@@ -75,51 +87,32 @@ export const AuthProvider = ({ children }) => {
   const login = async (credentials) => {
     if (sendingRequest) return;
 
-    await getSrfcCookie(); //Obtener token csrf
-
-    //Validar
-    if (!validateLogin(credentials)) {
-      return;
-    }
-
     try {
       setSendingRequest(true);
-      const respuesta = await axiosClient.post("/login", credentials, {
+
+      const respuesta = await postWithCsrf("/login", credentials, {
         withCredentials: true,
       });
 
       const responseData = respuesta.data;
-
       if (responseData.success) {
-        //Almacenar información del usuario
         setUser(responseData.user);
         localStorage.setItem("user", JSON.stringify(responseData.user));
-
-        //Establer usuario como autenticado
         setIsAuth(true);
-
-        setSendingRequest(false);
-
         setUnreadNotificationsCount(responseData.unreadNotifications);
-
-        //Navegara al perfil del usuario
-        return navigate(`/profile/${responseData.user.id}`);
+        navigate(`/profile/${responseData.user.id}`);
       }
+
       setSendingRequest(false);
     } catch (error) {
       setSendingRequest(false);
       console.log(error);
 
-      const responseErrors = error.response.data.errors;
-      if (responseErrors) {
-        setErrors(responseErrors);
-      }
+      const responseErrors = error.response?.data?.errors;
+      if (responseErrors) setErrors(responseErrors);
 
-      //Si no esta verificado enviar a pagina de notificación de verificación
-      if (!error.response.data.verified) {
-        return navigate(
-          `/verification-notification?email=${credentials.email}`
-        );
+      if (!error.response?.data?.verified) {
+        navigate(`/verification-notification?email=${credentials.email}`);
       }
     }
   };
@@ -161,7 +154,7 @@ export const AuthProvider = ({ children }) => {
       //Si no esta verificado enviar a pagina de notificación de verificación
       if (!error.response.data.verified) {
         return navigate(
-          `/verification-notification?email=${credentials.email}`
+          `/verification-notification?email=${credentials.email}`,
         );
       }
     }
